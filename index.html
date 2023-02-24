@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="style.css" />
+    <script src="model.js"></script>
+    <script src="view.js"></script>
+    <script src = "bridge.js"></script>
+
+    <title>VERY GOOD PROJECT</title>
+  </head>
+  <body>
+    <button id = "newBtn">+</button>
+    <div id="c"></div>
+    
+
+    <script>
+      function init() {
+        bridge = new Bridge(1)
+        const b = document.getElementById("newBtn");
+        b.addEventListener("click", () => bridge.addButton())
+      }
+      document.addEventListener("load", init());
+    </script>
+  </body>
+</html>
