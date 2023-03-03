@@ -1,3 +1,8 @@
+html {
+  background-color: #2d2d2d;
+  color: #fff;
+}
+
 button {
   
   width: 300px;
@@ -16,7 +21,7 @@ span {
 }
 
 #newBtn {
-  background-color: #2d2d2d;
+  background-color: #979797;
 }
 
 #c-d {
@@ -25,3 +30,4 @@ span {
   margin-right: 50px;
   margin-top: 20px;
 }
+

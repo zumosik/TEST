@@ -1,10 +1,9 @@
-class OnOff {
+class OnOff extends SimpleEvent {
   constructor(state, value) {
+    super();
     this.stateVal = state;
     this.val = value;
-    this.eventHandlers = {
-      update: [],
-    };
+    
   }
 
   set value(value) {
@@ -17,16 +16,17 @@ class OnOff {
 
   set state(state) {
     this.stateVal = state;
-    this.update();
+    this.dispatchEvent("update");
     this.countChange()
   }
 
   countChange() {
     if (this.stateVal === true) {
       setTimeout(() => {
+        if (this.val < 99){
         this.val += 1;
         this.countChange();
-        this.update();
+        this.dispatchEvent("update");}
       }, 100);
     }
   }
@@ -35,11 +35,7 @@ class OnOff {
     return this.stateVal;
   }
 
-  update() {
-    this.eventHandlers.update.forEach((eh) => eh(this));
-  }
 
-  addEventListener(eventType, eventHandler) {
-    this.eventHandlers[eventType].push(eventHandler);
-  }
+
+  
 }

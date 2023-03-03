@@ -8,8 +8,9 @@
   }
 });*/
 
-class view {
+class view  extends SimpleEvent {
   constructor(containerID) {
+    super()
     //console.log(document.getElementById("text"));
     this.c = document.getElementById(containerID);
 
@@ -18,7 +19,7 @@ class view {
 
     this.btn = document.createElement("button");
     this.btn.addEventListener("click", () => {
-      this.click();
+      this.dispatchEvent("click");
     });
     this.btn.innerHTML = "OFF";
     d.appendChild(this.btn);
@@ -32,14 +33,9 @@ class view {
 
     //this.c.appendChild(document.createElement("br"));
 
-    this.eventHandlers = {
-      click: [],
-    };
+
   }
 
-  click() {
-    this.eventHandlers.click.forEach((q) => q(this));
-  }
 
   update(model) {
     if (model.state === false) {
@@ -52,9 +48,7 @@ class view {
     }
 
     this.txt.innerHTML = model.value
+    
   }
 
-  addEventListener(eventType, eventHandler) {
-    this.eventHandlers[eventType].push(eventHandler);
-  }
 }
